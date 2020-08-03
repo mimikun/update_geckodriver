@@ -1,0 +1,15 @@
+= update_geckodriver
+
+Update geckodriver
+
+== Install
+
+[source,shell]
+----
+fisher add github.com/mimikun/update_geckodriver
+----
+
+== Require
+
+* geckodriver
+
