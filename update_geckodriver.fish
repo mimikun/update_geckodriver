@@ -5,6 +5,7 @@ function update_geckodriver --description 'Update geckodriver'
         set VERSION (curl --silent https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq .tag_name -r)
         set DESTINATION /usr/local/bin/geckodriver
         if test $OLD_VERSION != $VERSION
+            echo "Update found!"
             curl -L https://github.com/mozilla/geckodriver/releases/download/$VERSION/geckodriver-$VERSION-linux64.tar.gz -o /tmp/geckodriver.latest.tar.gz
             sleep 5
             set CURRENTDIR (pwd)
@@ -14,7 +15,8 @@ function update_geckodriver --description 'Update geckodriver'
             sudo cp /tmp/geckodriver $DESTINATION
             sudo rm -f /tmp/geckodriver*
             sudo chmod 755 $DESTINATION
+        else
+            echo "No update required."
         end
-        echo "No update required."
     end
 end
