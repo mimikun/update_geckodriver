@@ -6,10 +6,10 @@ Update geckodriver
 
 [source,shell]
 ----
-fisher add github.com/mimikun/update_geckodriver
+fisher install mimikun/update_geckodriver
 ----
 
 == Require
 
 * geckodriver
-
+* https://github.com/mimikun/read_confirm[read_confirm]
