@@ -1,5 +1,5 @@
 function update_geckodriver --description 'Update geckodriver'
-    echo "Update geckodriver"
+    echo "Update geckodriver?"
     if read_confirm
         set OLD_VERSION "v"(geckodriver -V | sed -n 1p | sed -e 's/ //g' |sed -e 's/geckodriver//g' | sed -e 's/(.*)//g')
         set VERSION (curl --silent https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq .tag_name -r)
