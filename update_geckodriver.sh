@@ -4,7 +4,7 @@ OLD_VERSION="v$(geckodriver -V | sed -n 1p | sed -e 's/ //g' | sed -e 's/geckodr
 VERSION=$(curl --silent https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq .tag_name -r)
 DESTINATION="/usr/local/bin/geckodriver"
 
-if $OLD_VERSION != "$VERSION"; then
+if test "$OLD_VERSION" != "$VERSION"; then
   echo "Update found!"
   curl -L "https://github.com/mozilla/geckodriver/releases/download/${VERSION}/geckodriver-${VERSION}-linux64.tar.gz" -o /tmp/geckodriver.latest.tar.gz
   sleep 5
